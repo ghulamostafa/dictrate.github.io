@@ -1,0 +1,19 @@
+<div class="col-md-4" >
+    <h1>DicTrate</h1>
+    <label>User ID:</label>
+    <input type="text" class="form-control" [(ngModel)]='userID'>
+    <br/>
+    <div class="panel panel-default" *ngFor='let word of Words'>
+        <div class="panel-heading">
+            <h3 class="panel-title">{{word.word}}</h3>
+        </div>
+        <div *ngFor='let meaning of word.Meaning'>
+            <div class="panel-body">
+                <button (click)='kudosDown(word.wordId, meaning.meaningId)' type="button" class="btn btn-info">❤-</button>
+                &nbsp;{{meaning.noOfKudos}}&nbsp;
+                <button (click)='kudosUp(word.wordId, meaning.meaningId)' type="button" class="btn btn-info">❤+</button>
+                 &nbsp; {{meaning.meaningValue}}
+            </div>
+        </div>
+    </div>
+</div>
